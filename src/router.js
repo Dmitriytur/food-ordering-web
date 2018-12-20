@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Place from "./views/Place.vue";
+import Cart from "./views/Cart.vue";
 
 import PlaceInfo from "./views/PlaceInfo.vue";
 import PlaceMenu from "./views/PlaceMenu.vue";
@@ -25,6 +26,10 @@ export default new Router({
         { path: "reviews", component: PlaceReviews },
         { path: "address", component: PlaceAddress }
       ]
+    },
+    {
+      path: "/cart",
+      component: Cart
     }
   ]
 });

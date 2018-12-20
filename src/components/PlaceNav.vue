@@ -40,6 +40,9 @@
         </div>
 
         <div class="col-xl-6">
+          <a href="#">
+            <span class="fa fa-shopping-cart cart-button"></span>
+          </a>
           <div class="search-menu" v-if="showSearch">
             <select class="form-control main-input sort-input" id="exampleFormControlSelect2">
               <option>Sort by price</option>
@@ -108,7 +111,7 @@
 }
 .dishes-input {
   display: inline-block;
-  width: 58%;
+  width: 50%;
   margin-left: -1px;
 }
 .input-search-button-in-row {
@@ -143,6 +146,17 @@ secondary:not(:disabled):not(.disabled).focus,
   color: #fff;
   background-color: #17a589;
   border-color: #17a589;
+}
+a .cart-button {
+  display: inline-block;
+  padding: 15px 10px 10px 35px;
+  text-align: right;
+  font-size: 20px;
+  color: #2e4053;
+  float: right;
+}
+a .cart-button:hover {
+  color: #17a589;
 }
 </style>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <place-nav v-bind:showSearch="showSearch"/>
-    <router-view v-bind:place="place" v-on:showSearch="onShowSearch($event)"></router-view>
+    <router-view v-bind:place="place" v-bind:dishes="dishes" v-on:showSearch="onShowSearch($event)"></router-view>
   </div>
 </template>
 

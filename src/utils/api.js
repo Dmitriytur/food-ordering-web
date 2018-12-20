@@ -11,3 +11,7 @@ export function getPlaces() {
 export function getPlace(id) {
   return axios.get(BASE_URL + "/places/" + id);
 }
+
+export function getDishes(placeId) {
+  return axios.get(BASE_URL + "/places/" + placeId + "/dishes");
+}
