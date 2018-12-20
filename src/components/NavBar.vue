@@ -35,7 +35,7 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">AppName</a>
+      <router-link to="/" class="navbar-brand">AppName</router-link>
     </nav>
   </span>
 </template>
@@ -57,7 +57,6 @@ body {
   background-position: center;
   background-size: cover;
   z-index: -2;
-  margin-bottom: 30px;
 }
 .black {
   position: absolute;

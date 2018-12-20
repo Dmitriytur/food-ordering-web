@@ -1,23 +1,28 @@
 <template>
   <div>
-    <b-nav tabs>
-      <b-nav-item to="info">Info</b-nav-item>
-      <b-nav-item to="menu">Menu</b-nav-item>
-      <b-nav-item to="reviews">Reviews</b-nav-item>
-      <b-nav-item to="address">Address</b-nav-item>
-    </b-nav>
-    <router-view v-bind:place="place"></router-view>
+    <place-nav v-bind:showSearch="showSearch"/>
+    <router-view v-bind:place="place" v-on:showSearch="onShowSearch($event)"></router-view>
   </div>
 </template>
 
 <script>
+import PlaceNav from "@/components/PlaceNav";
 import { getPlace } from "@/utils/api";
 
 export default {
+  components: {
+    PlaceNav
+  },
   data() {
     return {
-      place: {}
+      place: {},
+      showSearch: false
     };
+  },
+  methods: {
+    onShowSearch(value) {
+      this.showSearch = value;
+    }
   },
   mounted() {
     getPlace(this.$route.params.id).then(response => {

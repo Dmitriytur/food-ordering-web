@@ -1,27 +1,15 @@
 <template>
   <div>
-    <table>
-      <tr>
-        <td>
-          <img :src="getImage(place.photo)" alt="placeImage">
-        </td>
-        <td>{{ place.name }}</td>
-        <td>{{ place.stars }}</td>
-        <td>{{ place.address }}</td>
-        <td>
-          <star-rating v-model="place.stars" :read-only="true" :star-size="30" :increment="0.1"/>
-        </td>
-      </tr>
-    </table>
+    <place-card v-bind:place="place"></place-card>
   </div>
 </template>
 
 <script>
-import StarRating from "vue-star-rating";
+import PlaceCard from "@/components/PlaceCard";
 
 export default {
   components: {
-    StarRating
+    PlaceCard
   },
   props: ["place"],
   methods: {

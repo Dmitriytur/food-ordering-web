@@ -1,5 +1,6 @@
 <template>
   <div>
+    <search-row-home/>
     <div class="container">
       <div class="row">
         <div class="col-xl-12">
@@ -12,11 +13,13 @@
 
 <script>
 import PlaceCard from "@/components/PlaceCard";
+import SearchRowHome from "@/components/SearchRowHome";
 import { getPlaces } from "@/utils/api";
 
 export default {
   components: {
-    PlaceCard
+    PlaceCard,
+    SearchRowHome
   },
   data() {
     return {
