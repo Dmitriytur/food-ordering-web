@@ -1,40 +1,53 @@
 <template>
   <div class="menu-result-item">
-    <div class="menu-img"></div>
+    <div
+      class="menu-img"
+      :style="{ backgroundImage: 'url(' + getDishImage(cartDish.dish.photo) + ')' }"
+    ></div>
     <div class="menu-content">
       <div class="div-title">
-        <span class="title-text">Borscht</span>
+        <span class="title-text">{{cartDish.dish.name }}</span>
         <div class="title-right">
-          <span class="price">50.00 ₴</span>
+          <span class="price">{{cartDish.dish.price }} ₴</span>
           <span class="fa fa-trash-alt fa-icon-right"></span>
         </div>
       </div>
       <div class="quantity">
         <span class="quantity-item fa fa-minus fa-button"></span>
-        <span class="quantity-item">1</span>
+        <span class="quantity-item">{{cartDish.amount }}</span>
         <span class="quantity-item fa fa-plus fa-button"></span>
       </div>
       <div class="ingredients">
         <span class="info-label">Ingedients:</span>
-        <span
-          class="info-value"
-        >stew beef, beef bones, bay leaves, coriander, peppercorns, beets, onion, carrots, cabbage, potatoes, bella mushrooms, garlic cloves, tomato paste, sugar, salt</span>
+        <span class="info-value">{{cartDish.dish.ingredients }}</span>
       </div>
       <div class="additional-info">
         <div class="info-item">
           <span class="fa fa-clock"></span>
           <span class="info-label">Approximate time:</span>
-          <span class="info-value">30m</span>
+          <span class="info-value">{{cartDish.dish.time }}m</span>
         </div>
         <div class="info-item">
           <span class="fa fa-balance-scale"></span>
           <span class="info-label">Portion Size:</span>
-          <span class="info-value">400g</span>
+          <span class="info-value">{{cartDish.dish.size }}g</span>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["cartDish"],
+  methods: {
+    getDishImage(name) {
+      return require("../assets/dishes/" + name);
+    }
+  }
+};
+</script>
+
 
 <style scoped>
 .fa-button:hover {

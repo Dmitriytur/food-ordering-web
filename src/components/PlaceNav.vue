@@ -40,9 +40,9 @@
         </div>
 
         <div class="col-xl-6">
-          <a href="#">
+          <router-link :to="{path: '/cart/' + this.$route.params.id}">
             <span class="fa fa-shopping-cart cart-button"></span>
-          </a>
+          </router-link>
           <div class="search-menu" v-if="showSearch">
             <select class="form-control main-input sort-input" id="exampleFormControlSelect2">
               <option>Sort by price</option>

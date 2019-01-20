@@ -6,7 +6,7 @@
         <span class="title-text">{{ dish.name }}</span>
         <div class="title-right">
           <span class="price">{{ dish.price }} ₴</span>
-          <span class="fa fa-cart-plus fa-icon-right"></span>
+          <span class="fa fa-cart-plus fa-icon-right" @click="addToCart(dish.id)"></span>
         </div>
       </div>
       <div class="ingredients">
@@ -31,10 +31,26 @@
 
 <script>
 export default {
-  props: ["dish"],
+  props: ["dish", "placeId"],
   methods: {
     getDishImage(name) {
       return require("../assets/dishes/" + name);
+    },
+    addToCart(dishId) {
+      var cart = JSON.parse(localStorage.getItem("cart"));
+      if (!cart) {
+        cart = {};
+      }
+      if (!cart.hasOwnProperty(this.placeId)) {
+        cart[this.placeId] = {};
+      }
+      var placeCart = cart[this.placeId];
+      if (!placeCart.hasOwnProperty(dishId)) {
+        placeCart[dishId] = { dish: this.dish, amount: 0 };
+      }
+      var cartItem = placeCart[dishId];
+      cartItem.amount += 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
   }
 };
@@ -98,5 +114,3 @@ export default {
   margin: 15px 0;
 }
 </style>
-
-

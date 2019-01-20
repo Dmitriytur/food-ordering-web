@@ -40,7 +40,12 @@
         </div>
       </div>
       <div class="col-xl-10">
-        <dish-card v-for="dish in dishes" v-bind:key="dish.id" v-bind:dish="dish"/>
+        <dish-card
+          v-for="dish in dishes"
+          v-bind:key="dish.id"
+          v-bind:dish="dish"
+          v-bind:placeId="place.id"
+        />
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xl-6">
-            <a href="#">
+            <a href="javascript:history.go(-1)">
               <p class="search-results-title">
                 <span class="fa fa-arrow-left"></span> Back to the Place Page
               </p>
@@ -19,7 +19,11 @@
       <div class="row">
         <div class="col-xl-12">
           <div>
-            <cart-item/>
+            <cart-item
+              v-for="cartDish in cartItems"
+              v-bind:key="cartDish.dish.id"
+              v-bind:cartDish="cartDish"
+            />
           </div>
 
           <div class="row shopping-results">
@@ -125,6 +129,19 @@ import CartItem from "@/components/CartItem";
 export default {
   components: {
     CartItem
+  },
+  data() {
+    return {
+      cartItems: []
+    };
+  },
+  mounted() {
+    if (localStorage.getItem("cart")) {
+      var cart = JSON.parse(localStorage.getItem("cart"));
+      var placeId = this.$route.params.id;
+      this.cartItems = Object.values(cart[placeId]);
+      console.log(Object.values(cart[placeId]));
+    }
   }
 };
 </script>
